@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariana — Diseño UI &amp; Storytelling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ...existing code... -->
+<h1 class="hero__titulo" aria-label="Mariana Leal- Creadora digital">
+  <span data-scramble="Mariana Leal-" aria-hidden="true"></span>
+  <span data-scramble="Creadora digital" aria-hidden="true"></span>
+</h1>
+<!-- ...existing code... -->
+  <!-- Header fijo: logo + nav (se oculta en mobile, ahí se usa el
+       hamburguesa de abajo) -->
+  <header class="header" id="header">
+    <a class="logo" href="#hero">Mariana</a>
+    <nav class="nav" id="nav">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#notas">Notas</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-overlay">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Overlay de navegación para mobile: lo abre el botón hamburguesa de
+       arriba. script.js maneja el abrir/cerrar con la clase "is-abierto". -->
+  <div class="nav-overlay" id="nav-overlay">
+    <button class="nav-overlay__cerrar" id="btn-cerrar-overlay" aria-label="Cerrar menú">✕</button>
+    <nav class="nav-overlay__nav">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#notas">Notas</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- data-section en cada <section> es el gancho que usa script.js
+         para animarlas de a una al entrar en pantalla (GSAP ScrollTrigger) -->
+    <section class="hero" id="hero" data-section="hero">
+      <p class="hero__eyebrow">Diseño UI · Narrativa visual · Storytelling</p>
+      <h1 class="hero__titulo">Hola, soy Mariana</h1>
+      <p class="hero__subtitulo">Creo proyectos que combinan estética, emoción y propósito — equilibrando lo intuitivo con lo estratégico.</p>
+    </section>
+
+    <section class="proyectos" id="proyectos" data-section="proyectos">
+      <h2 class="section-titulo">Proyectos</h2>
+      <!-- arranca vacía: script.js la llena con el array "proyectos" de
+           data.js. Es un <ul> (lista), no una grilla de cards — cada
+           <li> es una fila de texto con una miniatura metida dentro del
+           título, como en la página de referencia. -->
+      <ul class="proyectos__lista" id="proyectos-grid"></ul>
+    </section>
+
+    <section class="filosofia" id="filosofia" data-section="filosofia">
+      <h2 class="section-titulo">Filosofía</h2>
+      <p class="filosofia__texto">
+        Encuentro inspiración en las historias, los objetos con pasado y los procesos de
+        transformación, manteniéndome siempre curiosa y en movimiento. Cuido cada detalle
+        para que cada idea conecte de forma auténtica.
+      </p>
+    </section>
+
+    <section class="notas" id="notas" data-section="notas">
+      <h2 class="section-titulo">Notas</h2>
+      <!-- arranca vacía: script.js la llena con el array "notas" de data.js -->
+      <ul class="notas__lista" id="notas-lista"></ul>
+    </section>
+
+    <section class="proceso" id="proceso" data-section="proceso">
+      <h2 class="section-titulo">Proceso</h2>
+      <p class="proceso__texto">
+        Contenido de relleno: acá va el "detrás de escena" — bocetos, moodboards, y cómo
+        se pasa de una historia a una interfaz.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto" data-section="contacto">
+    <div class="footer__contacto">
+      <h2 class="section-titulo">Hablemos</h2>
+      <a class="footer__email" href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a>
+    </div>
+    <div class="footer__redes">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Behance</a>
+    </div>
+  </footer>
+
+  <!-- Lenis: scroll suave. GSAP + ScrollTrigger: animaciones al hacer
+       scroll. Van antes de data.js/script.js porque ese código ya los usa. -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
